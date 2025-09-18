@@ -10,7 +10,7 @@ const GetApi = () => {
             setIsLoading(true);
             setGif(null);
             const randomUrl = 'https://api.giphy.com/v1/gifs/random';
-            const apiKey = 'zMyMJNyyQKdnS6TQwVRYxGDd2piLMC2F';
+            const apiKey = import.meta.env.VITE_API_KEY;
             const url = `${randomUrl}?api_key=${apiKey}`;
 
             try{
@@ -38,7 +38,7 @@ const GetApi = () => {
         <button onClick={handleClick} disabled={isLoading}>Klicka för Random GIF</button>
         <br />
         {!isLoading && gif && (
-            <img src={gif.images.fixed_width.url} alt={gif.title} style={{maxWidth: '350px', marginTop: '20px'}}
+            <img src={gif.images.fixed_width.url} alt={gif.title} style={{maxWidth: '250px', marginTop: '20px'}}
             /> )}
         </>
     )
